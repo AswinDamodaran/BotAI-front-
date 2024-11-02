@@ -21,7 +21,7 @@ function MainPage() {
     const res = data.find(
       (item) => input.toLowerCase() == item.question.toLowerCase()
     );
-    const ans = "Sorry, Did not understand your query";
+    let ans = "Sorry, Did not understand your query";
     if (res != undefined) {
       ans = res.response;
     }
