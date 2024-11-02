@@ -3,8 +3,18 @@ import React from "react";
 import centerIcon from "../../assets/centerIcon.svg";
 import EditPen from "../../assets/editpen.svg";
 import CloseIcon from "@mui/icons-material/Close";
+import { useNavigate } from "react-router-dom";
 
-function SideBar({ setChat, closeMenu, isMobile }) {
+function SideBar({ setChat, closeMenu, isMobile }) { 
+
+    const navigate=useNavigate()
+
+    const handleClick=()=>{
+        setChat([])
+        navigate("/")
+        
+    }
+
   return (
     <Stack spacing={3} width="100%">
       {isMobile && (
@@ -17,7 +27,7 @@ function SideBar({ setChat, closeMenu, isMobile }) {
         </Stack>
       )}
       <Stack
-        onClick={()=>setChat("")}
+        onClick={handleClick}
         display="flex"
         justifyContent="center"
         alignItems="center"
@@ -43,6 +53,7 @@ function SideBar({ setChat, closeMenu, isMobile }) {
       </Stack>
       <Stack display="flex" alignItems="center" width="100%">
         <Button
+        onClick={()=>navigate("/history")}
           variant="contained"
           sx={{
             fontSize: "80%",

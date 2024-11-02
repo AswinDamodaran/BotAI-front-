@@ -11,7 +11,7 @@ import SideBar from "../SideBar/SideBar";
 import MenuIcon from "@mui/icons-material/Menu";
 
 function Nav() {
-  const { handleMobileView } = useOutletContext();
+  const { handleMobileView,setChat } = useOutletContext();
   const isMobile = useMediaQuery("(max-width:800px)");
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -31,10 +31,10 @@ function Nav() {
       {isMobile && (
         <>
           <Button onClick={toggleDrawer(true)}>
-            <MenuIcon />
+            <MenuIcon sx={{color:"#9785BA"}} />
           </Button>
           <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
-            <SideBar closeMenu={toggleDrawer(false)} isMobile={isMobile} />
+            <SideBar closeMenu={toggleDrawer(false)} isMobile={isMobile} setChat={setChat} />
           </Drawer>
         </>
       )}
